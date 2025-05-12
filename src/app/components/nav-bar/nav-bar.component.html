@@ -1,0 +1,62 @@
+  <nav>
+    <div class="nav-logo"
+         matRipple
+         [matRippleTrigger]="logoTrigger"
+         [matRippleColor]="'rgba(127, 18, 205, 0.3)'"
+         [matRippleCentered]="true">
+      <a #logoTrigger [routerLink]="['/home']">MonLogo</a>
+    </div>
+
+    <div class="nav-left-content">
+      <div class="nav-bar-button">
+        <button [routerLink]="['/transaction']">{{ 'NAV.TRANSACTION' | translate }}</button>
+      <div matRipple [matRippleColor]="'rgba(127, 18, 205, 0.3)'">
+        <button
+          mat-icon-button
+          (mouseenter)="openMenu()"
+          [matMenuTriggerFor]="personMenu"
+          matMenuTrigger
+          #menuTrigger="matMenuTrigger">
+          <mat-icon>person</mat-icon>
+        </button>
+      </div>
+
+<mat-menu #personMenu="matMenu" >
+  @if (!authService.isAuthenticated()) {
+    <button mat-menu-item [routerLink]="['/login']">{{ 'NAV.LOGIN' | translate }}</button>
+    <button mat-menu-item [routerLink]="['/register']">{{ 'NAV.REGISTER' | translate }}</button>
+  }@else{  
+    <button mat-menu-item (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+  }
+</mat-menu>
+
+      <div matRipple [matRippleTrigger]="homeTrigger" [matRippleColor]="'rgba(127, 18, 205, 0.3)'">
+        <a #homeTrigger [routerLink]="['/home']" aria-label="Accuei">
+          @if (theme() === 'light'){
+            <mat-icon style="color: #000;">home</mat-icon>
+          }@else{
+            <mat-icon>home</mat-icon>
+          }
+        </a>
+      </div>
+      <div class="theme-mode">
+      @if (theme() === 'light'){
+        <button (click)="themeService.toggleTheme()"><mat-icon>light_mode</mat-icon></button>  
+      }@else{
+      <button (click)="themeService.toggleTheme()"><mat-icon>dark_mode</mat-icon></button>  
+      }
+    </div>
+    <mat-form-field appearance="fill" class="language-picker" >
+      <mat-select class="small-select" [(ngModel)]="selectedLang" (selectionChange)="changeLanguage($event)">
+        <mat-option value="en">en🇬🇧</mat-option>
+        <mat-option value="fr">fr🇫🇷</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    </div>
+
+</div>
+
+  </nav>
+
+

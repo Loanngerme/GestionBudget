@@ -1,0 +1,61 @@
+{
+    "NAV": {
+      "TRANSACTION": "Transaction",
+      "LOGIN": "Se connecter",
+      "REGISTER": "S'inscrire",
+      "ACCOUNT": "Compte",
+      "LOGOUT": "Se déconnecter"
+    },
+    "MAIN": {
+      "TITLE": "Organiser\nÉconomiser\nGérer"
+    },
+    "CARD": {
+      "EXPENSE": {
+        "TITLE": "Dépense",
+        "DESCRIPTION": "La page de transactions vous permet de consulter l’ensemble de vos opérations financières, regroupées par date et catégorie. Chaque entrée affiche le montant, le type (dépense ou revenu), ainsi que la source ou destination de la transaction. Grâce à une interface claire et intuitive, vous pouvez suivre l’évolution de vos finances, ajouter de nouvelles opérations, ou encore filtrer vos transactions selon différents critères.",
+        "LINK": "Voir plus"
+      },
+      "ACCOUNT": {
+        "TITLE": "Compte",
+        "DESCRIPTION": "La page des comptes vous offre un aperçu global de votre situation financière. Vous y retrouvez vos soldes actuels, la répartition de vos dépenses et revenus, ainsi que les mouvements récents. Des graphiques simples vous aident à visualiser vos habitudes de consommation, tandis que des indicateurs clés vous permettent de garder le contrôle sur votre budget au quotidien.",
+        "LINK": "Voir plus"
+      }
+    },
+    "BUTTON": {
+      "SEE_MORE": "Voir plus"
+    },
+  "LOGIN": {
+    "USERNAME": "Nom d'utilisateur",
+    "PASSWORD": "Mot de passe",
+    "BUTTON": "Se connecter",
+    "REGISTER": "Pas de compte? Inscrivez-vous ici",
+    "CREDENTIALS": {
+      "USERNAME": "Nom d'utilisateur",
+      "PASSWORD": "password : 1234"
+    }
+  },
+  "TRANSACTION": {
+    "TITLE": "Ajouter vos transaction/achat de la journée!",
+    "ADD_BUTTON": "Ajouter une transaction",
+    "FILTER_LABEL": "Filtrer par catégorie",
+    "FILTER_ALL": "Toutes",
+    "LOADING": "Chargement des transactions...",
+    "NONE": "Aucune transaction à afficher.",
+    "DATE": "Date",
+    "DESCRIPTION": "Description",
+    "CATEGORY": "Catégorie",
+    "NOT_PROVIDED": "non renseignée",
+    "DELETE": "Supprimer"
+  },
+  "PAYE": {
+    "ADD_LABEL": "Ajouter une paye",
+    "TOTAL": "Solde total de paye: ",
+    "NONE": "Aucune paye enregistrée."
+  },
+  "ACCOUNT": {
+    "H1": "Votre compte"
+  },
+  "NOTFOUND": {
+        "H1": "Page introuvable"
+      }
+}

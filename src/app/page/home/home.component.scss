@@ -1,0 +1,90 @@
+.dark-mode{
+    --color-p: #FFF;
+    --background: linear-gradient(to right, #fff, #ccc);
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 98vh;
+}
+
+
+.main-title{
+    margin: 90px;
+}
+
+.main-title h1{
+    font-size: 3rem;
+    background: linear-gradient(to right, #fff, #a3a3a3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Montserrat Alternates", sans-serif;
+
+}
+
+.dark-mode .main-title h1{
+}
+
+.main2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 66%;
+    height: 800px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 90px;
+    border: solid 1px;
+    border-radius: 20px;
+    height: 500px;
+    padding: 20px;
+    box-shadow: 5px 5px 2px 1px #ccc;
+}
+.card-icon img{
+    margin-top: 20px;
+    width: 20%;
+    color: #FFF;
+}
+
+.card-button button{
+    color: #ff6a00 !important;
+    background-color: #FFF;
+}
+.card-p p{
+    font-family: "Nunito", sans-serif;
+}
+.card-h1 h2{
+    font-size: 30px;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+.card-content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
+}
+#pin-windmill-wrap{
+    height: 50%;
+    margin-top: 40px;
+}
+#pin-windmill-svg{
+    width: 50%;
+}
+#pin-windmill{
+    display: flex;
+    justify-content: end;
+    margin-right: 70px;
+}
+.card-icon mat-icon{
+    margin-top: 50px;
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+}

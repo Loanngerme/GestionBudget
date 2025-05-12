@@ -1,0 +1,23 @@
+.main{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.snackbar-error {
+    background-color: #f44336;
+    color: white;
+}
+#loginRegister{
+    font-size: 90%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}

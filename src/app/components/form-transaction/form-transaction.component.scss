@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+mat-form-field{
+    width: 500px;
+}
+.buttons{
+    gap: 20px; 
+  
+}

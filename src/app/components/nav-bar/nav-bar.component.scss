@@ -1,0 +1,61 @@
+.dark-mode {
+    --nav-bg: #ccc;
+    --text-color: white;
+  }
+  nav a {
+    color: var(--text-color);
+  }
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    z-index: 3;
+    background-color: var(--nav-bg);
+}
+nav a{
+    text-decoration: none;
+    margin: 0 10px;
+    font-family: "Montserrat Alternates", sans-serif;
+    cursor: pointer;
+}
+nav.dark-mode{
+    background-color: #000;
+}
+.nav-logo {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+.nav-left-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+
+}
+.nav-left-content div[matRipple] {
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 0 4px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .nav-bar-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+  button{
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+  }

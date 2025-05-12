@@ -1,0 +1,42 @@
+
+<div class="main" [ngStyle]="gradientStyle" (mousemove)="onMouseMove($event)">
+    <div class="main-title" >
+        @if (theme() === 'light'){
+        <h1 style=" background: linear-gradient(to right, #000, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;">{{ 'MAIN.TITLE' | translate }}</h1>
+        }@else{
+            <h1>{{ 'MAIN.TITLE' | translate }}</h1>
+        }
+    </div>
+    <div id="pin-windmill-wrap">
+        <div id="pin-windmill">
+          <img id="pin-windmill-svg" src="/assets/img/flower.svg" />
+        </div>
+      </div>
+
+</div>
+<div class="main2">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-icon"><mat-icon>payments</mat-icon> </div>
+            <div class="card-text">
+                <div class="card-h1"><h2>{{ 'CARD.EXPENSE.TITLE' | translate }}</h2></div>
+                <div class="card-p"><p>{{ 'CARD.EXPENSE.DESCRIPTION' | translate }}</p></div>
+            </div>
+            <div class="card-button"><button mat-raised-button [routerLink]="['/login']">{{ 'CARD.EXPENSE.LINK' | translate}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <div class="card-icon"><mat-icon>account_balance</mat-icon></div>
+            <div class="card-text">
+                <div class="card-h1"><h2>{{ 'CARD.ACCOUNT.TITLE' | translate }}</h2></div>
+                <div class="card-p"><p>{{ 'CARD.ACCOUNT.DESCRIPTION' | translate }}</p></div>
+            </div>
+            <div class="card-button"><button mat-raised-button [routerLink]="['/login']">{{ 'CARD.ACCOUNT.LINK' | translate}}</button>
+</div>
+        </div>
+    </div>
+</div>

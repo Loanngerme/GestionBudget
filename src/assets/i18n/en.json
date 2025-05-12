@@ -1,0 +1,62 @@
+{
+  "NAV": {
+    "TRANSACTION": "Transaction",
+    "LOGIN": "Log In",
+    "REGISTER": "Register",
+    "ACCOUNT": "Account",
+    "LOGOUT": "Log Out"
+  },
+    "MAIN": {
+      "TITLE": "Organize\nSave\nManage"
+    },
+    "CARD": {
+      "EXPENSE": {
+        "TITLE": "Expense",
+        "DESCRIPTION": "The transactions page allows you to view all of your financial operations, grouped by date and category. Each entry displays the amount, type (expense or income), as well as the source or destination of the transaction. With a clear and intuitive interface, you can track the evolution of your finances, add new operations, or filter your transactions according to various criteria.",
+        "LINK": "View more"
+      },
+      "ACCOUNT": {
+        "TITLE": "Account",
+        "DESCRIPTION": "The accounts page gives you a global overview of your financial situation. You can find your current balances, the breakdown of your expenses and income, as well as recent movements. Simple graphs help you visualize your consumption habits, while key indicators help you maintain control over your daily budget.",
+        "LINK": "View more"
+
+      }
+    },
+    "BUTTON": {
+      "SEE_MORE": "See more"
+    },
+      "LOGIN": {
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "BUTTON": "Login",
+        "REGISTER": "No account? Register here",
+        "CREDENTIALS": {
+          "USERNAME": "username: admin",
+          "PASSWORD": "password: 1234"
+        }
+      },
+      "TRANSACTION": {
+        "TITLE": "Add your daily transaction/purchase!",
+        "ADD_BUTTON": "Add a transaction",
+        "FILTER_LABEL": "Filter by category",
+        "FILTER_ALL": "All",
+        "LOADING": "Loading transactions...",
+        "NONE": "No transactions to display.",
+        "DATE": "Date",
+        "DESCRIPTION": "Description",
+        "CATEGORY": "Category",
+        "NOT_PROVIDED": "not provided",
+        "DELETE": "Delete"
+      },
+      "PAYE": {
+        "ADD_LABEL": "Add a pay",
+        "TOTAL": "Total pay balance:",
+        "NONE": "No pay recorded."
+      },
+      "ACCOUNT": {
+        "H1": "Your account"
+      },
+      "NOTFOUND": {
+        "H1": "Page not found"
+      }
+}

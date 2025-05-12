@@ -1,0 +1,43 @@
+<div class="main">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field floatLabel="always">
+        <mat-label>Prix</mat-label>
+        <input matInput type="number" formControlName="prix" placeholder="0" class="example-right-align" />
+        <span matTextPrefix>$&nbsp;</span>
+        
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Catégorie</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="Course">Course 🛒</mat-option>
+          <mat-option value="Sortie">Sortie 🛍️</mat-option>
+          <mat-option value="Abonnement">Abonnement 💻</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Choisissez une date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+      <div class="buttons">
+        <button mat-button>Back</button>
+        <button mat-flat-button color="primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>

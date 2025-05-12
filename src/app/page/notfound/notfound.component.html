@@ -1,0 +1,9 @@
+<div class="main" [ngStyle]="gradientStyle" (mousemove)="onMouseMove($event)">
+    @if (theme() === 'light'){
+        <h1 style=" background: linear-gradient(to right, #000, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;">{{ 'NOTFOUND.H1' | translate }}</h1>
+        }@else{
+            <h1>{{ 'NOTFOUND.H1' | translate }}</h1>
+        }
+</div>
