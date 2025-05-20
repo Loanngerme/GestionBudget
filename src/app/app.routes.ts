@@ -29,15 +29,20 @@ export const routes: Routes = [
     {
         path: 'transaction',
         canActivate: [AuthGuard],
-        component: TransactionComponent
+        component: TransactionComponent,
+        data: { animation: 'CompteComponent'}
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { animation: 'CompteComponent'}
+
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        data: { animation: 'CompteComponent'}
+
     },
     {
         path: '**',

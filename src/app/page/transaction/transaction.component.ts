@@ -18,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddPayeConfirmationDialogComponent } from '../../components/add-paye-confirmation-dialog/add-paye-confirmation-dialog.component';
 import { TranslatePipe } from '@ngx-translate/core'; 
+import { PayeService } from '../../services/paye.service';
 
 @Component({
   selector: 'app-transaction',
@@ -67,7 +68,8 @@ export class TransactionComponent implements AfterViewInit {
 
   gradientStyle = {};
 
-  constructor() {}
+  constructor(private payeService: PayeService) {}
+  totalPaye: number = 0;
 
   ngOnInit(): void {
     const transactions = this.TransactionsService.getAll();
@@ -75,6 +77,7 @@ export class TransactionComponent implements AfterViewInit {
     this.filteredTransactions.set(transactions);
     this.categories.set([...new Set(transactions.map(t => t.category).filter(Boolean))]);
     this.loadingTransactions = false;
+    this.totalPaye = this.payeService.total;
   }
 
   ngAfterViewInit() {}
@@ -91,7 +94,12 @@ export class TransactionComponent implements AfterViewInit {
     this.refreshView();
     this.showSuccess('Transaction supprimée ✅');
   }
-
+ showSuccess(message: string) {
+    this.snackBar.open(message, 'Fermer', {
+      duration: 3000,
+      panelClass: ['snackbar-success']
+    });
+  }
   openForm() {
     this.dialog.open(FormTransactionComponent, {
       width: '400px'
@@ -103,6 +111,7 @@ export class TransactionComponent implements AfterViewInit {
       }
     });
   }
+   
 
   toggleDetails(id: number) {
     this.expandedTransactionId.update(current => current === id ? null : id);
@@ -116,12 +125,7 @@ export class TransactionComponent implements AfterViewInit {
     this.filteredTransactions.set(filtered);
   }
 
-  showSuccess(message: string) {
-    this.snackBar.open(message, 'Fermer', {
-      duration: 3000,
-      panelClass: ['snackbar-success']
-    });
-  }
+
 
   private refreshView() {
     const updated = this.TransactionsService.getAll();
@@ -137,21 +141,14 @@ export class TransactionComponent implements AfterViewInit {
   get message() {
     return 'vous avez encore inséré aucune paye.';
   }
-
   addPaye(paye: string) {
-    const dialogRef = this.dialog2.open(AddPayeConfirmationDialogComponent);
-    dialogRef.afterClosed().subscribe(confirmation => {
-      if (confirmation && paye.trim()) {
-        this.allPaye.push(paye.trim());
-        this.showSuccess('Paye ajoutée ✅');
-      }
-    });
-  }
+  const dialogRef = this.dialog.open(AddPayeConfirmationDialogComponent);
+  dialogRef.afterClosed().subscribe(confirmation => {
+    if (confirmation && paye.trim()) {
+      this.payeService.addPaye(paye);
+      this.showSuccess('Paye ajoutée ✅');
+    }
+  });
+}
 
-  get totalPaye(): number {
-    return this.allPaye
-      .map(p => Number(p))
-      .filter(n => !isNaN(n))
-      .reduce((acc, val) => acc + val, 0);
-  }
 }
