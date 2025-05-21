@@ -27,6 +27,7 @@
     <button mat-menu-item [routerLink]="['/register']">{{ 'NAV.REGISTER' | translate }}</button>
   }@else{  
     <button mat-menu-item (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+    <button mat-menu-item [routerLink]="['/account']">{{ 'NAV.ACCOUNT' | translate }}</button>
   }
 </mat-menu>
 

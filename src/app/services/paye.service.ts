@@ -1,26 +1,46 @@
-import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Injectable, signal, computed } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PayeService {
-  private payes = new BehaviorSubject<string[]>([]);
-  payes$ = this.payes.asObservable();
+    private readonly STORAGE_KEY = 'allPaye';
 
-  get currentPayes(): string[] {
-    return this.payes.value;
-  }
+  private _allPaye = signal<string[]>(this.loadFromLocalStorage());
 
+  // Ajouter une paye
   addPaye(paye: string) {
-    const current = [...this.payes.value, paye.trim()];
-    this.payes.next(current);
+    this._allPaye.update(current => {
+      const updated = [...current, paye];
+      this.saveToLocalStorage(updated);
+      return updated;
+    });
   }
 
-  get total(): number {
-    return this.currentPayes
-      .map(p => Number(p))
-      .filter(n => !isNaN(n))
-      .reduce((acc, val) => acc + val, 0);
+  // Lire la liste
+  get allPaye() {
+    return this._allPaye.asReadonly();
+  }
+
+  // Total calculé
+  get total() {
+    return this._allPaye().map(p => Number(p)).filter(n => !isNaN(n)).reduce((acc, val) => acc + val, 0);
+  }
+
+  // Total réactif
+  readonly totalSignal = computed(() =>
+    this._allPaye().map(p => Number(p)).filter(n => !isNaN(n)).reduce((acc, val) => acc + val, 0)
+  );
+
+  // Enregistre dans le localStorage
+  private saveToLocalStorage(payeList: string[]) {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(payeList));
+  }
+
+  // Charge depuis le localStorage
+  private loadFromLocalStorage(): string[] {
+    const saved = localStorage.getItem(this.STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [];
   }
 }

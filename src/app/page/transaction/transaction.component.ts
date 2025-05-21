@@ -69,7 +69,6 @@ export class TransactionComponent implements AfterViewInit {
   gradientStyle = {};
 
   constructor(private payeService: PayeService) {}
-  totalPaye: number = 0;
 
   ngOnInit(): void {
     const transactions = this.TransactionsService.getAll();
@@ -77,7 +76,6 @@ export class TransactionComponent implements AfterViewInit {
     this.filteredTransactions.set(transactions);
     this.categories.set([...new Set(transactions.map(t => t.category).filter(Boolean))]);
     this.loadingTransactions = false;
-    this.totalPaye = this.payeService.total;
   }
 
   ngAfterViewInit() {}
@@ -132,6 +130,9 @@ export class TransactionComponent implements AfterViewInit {
     this.transactions.set(updated);
     this.filterTransactions();
     this.categories.set([...new Set(updated.map(t => t.category).filter(Boolean))]);
+  }
+  get totalPaye() {
+    return this.payeService.total;
   }
 
   get hasPaye() {
